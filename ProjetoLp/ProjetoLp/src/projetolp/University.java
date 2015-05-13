@@ -26,15 +26,16 @@ public class University {
     }
 //    public Course updateCourse(String code, String title, int numCredits, int maxStudents){   
 //    }
-//    public UnderGraduateStudent addUnderGraduateStudent(long ID, String name, String address, String phone, String email, String major,String minor){
-//        
-//    }
+    public void addUnderGraduateStudent(long ID, String name, String address, String phone, String email, String major,String minor){
+       students.add(new UnderGraduateStudent(ID,name,address,phone,email,major,minor));
+        
+    }
 //    public UnderGraduateStudent updateUnderGraduateStudent(long ID, String name, String address, String phone, String email, String major,String minor){
 //        
 //    }
-//    public PostGraduateStudent addPostGraduateStudent(long ID, String name, String address, String phone, String email, String thesisTitle,String supervisor){
-//        
-//    }
+    public void addPostGraduateStudent(long ID, String name, String address, String phone, String email, String thesisTitle,String supervisor){
+         students.add(new PostGraduateStudent(ID,name,address,phone,email,thesisTitle,supervisor));
+    }
 //    public PostGraduateStudent updatePostGraduateStudent(long ID, String name, String address, String phone, String email, String thesisTitle,String supervisor){
 //        
 //    }
@@ -51,18 +52,33 @@ public class University {
       return null;  
     }
     public Registration getRegistration(long studentID, String courseCode){
+        for(Registration registro : registrations){
+            if(registro.getStudent().getID()== studentID && registro.getCourse().getCode()== courseCode){
+                return registro;
+            }
+        }
         return null;
     }
     public boolean RegisterStudent(long studentID, String courseCode){
         return false;
     }
-    public boolean deRegisterStudent(long studentID, String courseCode){
-        return false;
-    }
+//    public boolean deRegisterStudent(long studentID, String courseCode){
+//        for(Registration resgister : registrations){
+//            if()
+//        }
+//        return ;
+//    }
     public String getCourses(){
+        
+        for(Course curso : courses){
+           return curso.toString();
+        }
         return null;
     }
     public String getStudents(){
-        return  null;
+      for(Student estudante : students){
+           return estudante.toString();
+        }
+        return null;
     }
 }
